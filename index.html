@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Emmanuel Tsingambia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            line-height: 1.6;
+            animation: fadeIn 1.2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #00d4ff;
+            box-shadow: 0 0 20px rgba(0,212,255,0.6);
+            margin-bottom: 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        header h1 {
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            border-left: 5px solid #00d4ff;
+            padding-left: 10px;
+            font-weight: 600;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .contact a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        .level {
+            font-size: 13px;
+            opacity: 0.8;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="121.jpg" alt="Photo de profil" class="profile-pic">
+    <h1>Emmanuel Tsingambia</h1>
+    <p>Étudiant en Informatique | Futur Administrateur Systèmes & Réseaux | Cybersécurité</p>
+</header>
+
+<section>
+    <h2>À propos de moi</h2>
+    <div class="card">
+        <p>
+            Étudiant en informatique passionné par les systèmes, les réseaux et la cybersécurité.
+            Mon objectif est de devenir Administrateur Systèmes & Réseaux puis évoluer vers un poste de RSSI.
+            J’aime créer des solutions informatiques modernes, performantes et sécurisées.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>Compétences Techniques</h2>
+    <div class="skills">
+        <div class="card">
+            <h3>Développement</h3>
+            <p class="level">Niveau : Moyen</p>
+            <ul>
+                <li>HTML / CSS / Bootstrap</li>
+                <li>PHP & MySQL</li>
+                <li>Création d’applications web</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Bases de données</h3>
+            <p class="level">Niveau : Moyen</p>
+            <ul>
+                <li>Modélisation Merise</li>
+                <li>MySQL</li>
+                <li>Structuration des données</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Systèmes & Réseaux</h3>
+            <p class="level">Niveau : Moyen</p>
+            <ul>
+                <li>Administration Windows / Linux</li>
+                <li>Adressage IP</li>
+                <li>Services réseau</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Cybersécurité</h3>
+            <p class="level">Niveau : Moyen</p>
+            <ul>
+                <li>Bonnes pratiques de sécurité</li>
+                <li>Protection des données</li>
+                <li>Gestion des accès</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Formations & Certifications</h2>
+    <div class="card">
+        <ul>
+            <li>🎓 Étudiant en Informatique — Programmation</li>
+            <li>🖥️ Formation en Administration Systèmes & Réseaux (en cours)</li>
+            <li>🔐 Formation en cours : Introduction à la Cybersécurité</li>
+            <li>📚 Auto-formation continue via cours et pratique personnelle</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>Objectif Professionnel</h2>
+    <div class="card">
+        <p>
+            Devenir expert en administration systèmes et réseaux puis me spécialiser en cybersécurité
+            afin de protéger les infrastructures informatiques contre les menaces et attaques.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>Contact</h2>
+    <div class="card contact">
+        <p>Email : <a href="mailto:emmanueltsingambia@gmail.com">emmanueltsingambia@gmail.com</a></p>
+        <p>Téléphone : +242 06 145 96 43 / 05 62 33 40 9</p>
+        <p>LinkedIn : <a href="#">EMMANUEL TSINGAMBIA</a></p>
+    </div>
+</section>
+
+<footer>
+    © 2026 Emmanuel Tsingambia — Mon Portfolio Professionnel
+</footer>
+
+</body>
+</html>
