@@ -19,22 +19,18 @@ html{
     scroll-behavior:smooth;
 }
 
-/* BACKGROUND FIXÉ */
-body{
-    background: url('https://images.unsplash.com/photo-1537432376769-00a86f06e1d4') no-repeat center center/cover;
-    color:white;
-    position:relative;
-    min-height:100vh;
+
+html, body{
+    height:100%;
 }
 
-/* OVERLAY SOMBRE */
-body::before{
-    content:"";
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:rgba(10,20,30,0.88);
-    z-index:-1;
+body{
+    background-image: url("https://images.unsplash.com/photo-1537432376769-00a86f06e1d4?auto=format&fit=crop&w=1920&q=80");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color:white;
+    position:relative;
 }
 
 /* HEADER */
