@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - Emmanuel Tsingambia</title>
+<title>Portfolio - TSINGAMBIA MWENOBANGUE </title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -20,8 +20,21 @@ html{
 }
 
 body{
-    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    background: url('https://images.unsplash.com/photo-1518770660439-4636190af475') no-repeat center center/cover;
     color:white;
+    position:relative;
+}
+
+/* OVERLAY sombre */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(10,20,30,0.85);
+    z-index:-1;
 }
 
 /* HEADER */
@@ -110,7 +123,7 @@ h2::before{
     box-shadow:0 0 25px rgba(0,212,255,0.4);
 }
 
-/* BARRES DE COMPÉTENCES */
+/* BARRES */
 .skill{
     margin-bottom:15px;
 }
@@ -165,14 +178,19 @@ footer{
 <img src="121.jpeg" class="profile-pic">
 <h1>Emmanuel Tsingambia</h1>
 <p>Étudiant en Informatique | Systèmes & Réseaux | Cybersécurité</p>
+
+<p style="margin-top:10px; font-size:14px; opacity:0.8;">
+💻 Passion • 🔐 Sécurité • 🌐 Réseaux
+</p>
 </header>
 
 <section>
 <h2>À propos</h2>
 <div class="card">
 <p>
-Étudiant en informatique passionné par les systèmes, les réseaux et la cybersécurité.
-Je recherche un stage pour développer mes compétences pratiques et évoluer vers un poste d’administrateur systèmes & réseaux puis RSSI.
+Étudiant en informatique passionné par les systèmes, les réseaux et la cybersécurité, je développe continuellement mes compétences à travers la pratique et la veille technologique.
+
+Je m’intéresse particulièrement à la sécurité, la performance et la fiabilité des systèmes informatiques.
 </p>
 </div>
 </section>
@@ -205,10 +223,20 @@ Je recherche un stage pour développer mes compétences pratiques et évoluer ve
 <div class="skill">
 <div class="skill-name">
 <span>Développement Web</span>
-<span>65%</span>
+<span>20%</span>
 </div>
 <div class="progress">
-<div class="progress-bar" data-width="65%"></div>
+<div class="progress-bar" data-width="20%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">
+<span>Bases de données</span>
+<span>20%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" data-width="20%"></div>
 </div>
 </div>
 
@@ -236,63 +264,10 @@ Je recherche un stage pour développer mes compétences pratiques et évoluer ve
 </section>
 
 <section>
-<h2>Expérience</h2>
-<div class="card">
-<p><strong>Assistant bureautique – 2024</strong></p>
-<p>École de la Gendarmerie Nationale</p>
-<ul>
-<li>Rédaction de documents</li>
-<li>Gestion de dossiers</li>
-<li>Utilisation d’outils bureautiques</li>
-</ul>
-</div>
-</section>
-
-<section>
-<h2>Formation</h2>
-<div class="card">
-<ul>
-<li>Baccalauréat technique (Maintenance informatique)</li>
-<li>2ème année Analyse & Programmation (en cours)</li>
-<li>Cisco Networking Academy – Réseaux</li>
-<li>Cisco Networking Academy – Cybersécurité</li>
-</ul>
-</div>
-</section>
-
-<section>
-<h2>Langues</h2>
-<div class="card">
-<ul>
-<li>Français : Natif</li>
-<li>Anglais : Intermédiaire</li>
-</ul>
-</div>
-</section>
-
-<section>
-<h2>Centres d’intérêt</h2>
-<div class="card">
-<ul>
-<li>Cybersécurité</li>
-<li>Veille technologique</li>
-<li>Jeux de stratégie</li>
-<li>Sport & musique</li>
-</ul>
-</div>
-</section>
-
-<section>
 <h2>Contact</h2>
 <div class="card">
 <p>Email : emmanueltsingambia6@gmail.com</p>
 <p>Téléphone : +242 06 145 96 43</p>
-<p>
-Portfolio :
-<a href="https://manu-jo339.github.io/monPortfolio/" target="_blank">
-Voir mon portfolio
-</a>
-</p>
 </div>
 </section>
 
