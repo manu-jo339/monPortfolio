@@ -19,13 +19,15 @@ html{
     scroll-behavior:smooth;
 }
 
-/* BACKGROUND */
+/* BACKGROUND FIXÉ */
 body{
-    background:('https://images.unsplash.com/photo-1537432376769-00a86f06e1d4') no-repeat center center/cover;
+    background: url('https://images.unsplash.com/photo-1537432376769-00a86f06e1d4') no-repeat center center/cover;
     color:white;
     position:relative;
+    min-height:100vh;
 }
 
+/* OVERLAY SOMBRE */
 body::before{
     content:"";
     position:fixed;
@@ -178,7 +180,7 @@ footer{
 <header>
 <img src="121.jpeg" class="profile-pic">
 <h1>TSINGAMBIA MWENOBANGUE</h1>
-    <h2>Josué Arnauld Emmanuel</h2>
+<h2>Josué Arnauld Emmanuel</h2>
 <p>Étudiant en Informatique | Systèmes & Réseaux | Cybersécurité</p>
 
 <p style="margin-top:10px; font-size:14px; opacity:0.8;">
