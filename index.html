@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-/* ... (Tes styles CSS précédents restent inchangés) ... */
 *{
     margin:0;
     padding:0;
@@ -20,8 +19,9 @@ html{
     scroll-behavior:smooth;
 }
 
+/* BACKGROUND */
 body{
-    background: url('https://images.unsplash.com/photo-1537432376769-00a86f06e1d4') no-repeat center center/cover;
+    background:url('https://images.unsplash.com/photo-1537432376769-00a86f06e1d4') no-repeat center/cover;
     color:white;
     position:relative;
 }
@@ -29,14 +29,13 @@ body{
 body::before{
     content:"";
     position:fixed;
-    top:0;
-    left:0;
     width:100%;
     height:100%;
     background:rgba(10,20,30,0.88);
     z-index:-1;
 }
 
+/* HEADER */
 header{
     text-align:center;
     padding:60px 20px;
@@ -55,12 +54,14 @@ header{
 h1{font-size:38px;}
 p{opacity:0.9;}
 
+/* SECTIONS */
 section{
     max-width:1000px;
     margin:30px auto;
     padding:20px;
 }
 
+/* TITRES */
 h2{
     margin-bottom:15px;
     padding-left:12px;
@@ -79,6 +80,7 @@ h2::before{
     box-shadow:0 0 10px #00d4ff;
 }
 
+/* CARTES */
 .card{
     position:relative;
     padding:20px;
@@ -119,6 +121,7 @@ h2::before{
     box-shadow:0 0 25px rgba(0,212,255,0.4);
 }
 
+/* BARRES */
 .skill{
     margin-bottom:15px;
 }
@@ -147,30 +150,25 @@ h2::before{
     transition:width 1.5s ease;
 }
 
+/* LISTES */
+ul{list-style:none;}
+li{margin-bottom:6px;}
+
+/* LIENS */
 a{
     color:#00d4ff;
     text-decoration:none;
 }
 
+a:hover{
+    text-decoration:underline;
+}
+
+/* FOOTER */
 footer{
     text-align:center;
     padding:20px;
     opacity:0.7;
-}
-
-/* NOUVEAUX STYLES POUR LES LISTES */
-ul.tech-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-ul.tech-list li {
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    border-left: 3px solid #00d4ff;
 }
 </style>
 </head>
@@ -179,61 +177,111 @@ ul.tech-list li {
 
 <header>
 <img src="121.jpeg" class="profile-pic">
-[span_0](start_span)<h1>Emmanuel Tsingambia[span_0](end_span)</h1>
-<p>Étudiant en Informatique | Systèmes & Réseaux | [span_1](start_span)Cybersécurité[span_1](end_span)</p>
+<h1>Emmanuel Tsingambia</h1>
+<p>Étudiant en Informatique | Systèmes & Réseaux | Cybersécurité</p>
+
+<p style="margin-top:10px; font-size:14px; opacity:0.8;">
+💻 Passion • 🔐 Sécurité • 🌐 Réseaux
+</p>
 </header>
 
 <section>
 <h2>À propos</h2>
 <div class="card">
 <p>
-[span_2](start_span)Étudiant en informatique passionné par les systèmes, les réseaux et la cybersécurité[span_2](end_span). [span_3](start_span)Je développe mes compétences à travers la pratique et la veille technologique[span_3](end_span). [span_4](start_span)Rigoureux et organisé, j'ai le sens des responsabilités et de la confidentialité[span_4](end_span).
+Étudiant en informatique passionné par les systèmes, les réseaux et la cybersécurité. 
+Je développe mes compétences à travers la pratique, la veille technologique et la résolution de problèmes.
 </p>
 </div>
 </section>
 
 <section>
-<h2>Expérience Professionnelle</h2>
+<h2>Compétences Techniques</h2>
 <div class="card">
-    <h3 style="color:#00d4ff;">Assistant bureautique</h3>
-    [span_5](start_span)<p><strong>École de la Gendarmerie Nationale - 2024</strong>[span_5](end_span)</p>
-    <ul style="margin-top:10px; padding-left:20px;">
-        [span_6](start_span)<li>Rédaction et mise en forme de documents administratifs[span_6](end_span)</li>
-        [span_7](start_span)<li>Gestion et classement de dossiers[span_7](end_span)</li>
-        [span_8](start_span)<li>Utilisation d'équipements bureautiques[span_8](end_span)</li>
-    </ul>
+
+<div class="skill"><div class="skill-name"><span>Administration Systèmes</span><span>75%</span></div><div class="progress"><div class="progress-bar" data-width="75%"></div></div></div>
+
+<div class="skill"><div class="skill-name"><span>Maintenance Informatique</span><span>70%</span></div><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
+
+<div class="skill"><div class="skill-name"><span>Réseaux</span><span>70%</span></div><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
+
+<div class="skill"><div class="skill-name"><span>Développement Web</span><span>20%</span></div><div class="progress"><div class="progress-bar" data-width="20%"></div></div></div>
+
+<div class="skill"><div class="skill-name"><span>Bases de données</span><span>20%</span></div><div class="progress"><div class="progress-bar" data-width="20%"></div></div></div>
+
+<div class="skill"><div class="skill-name"><span>Cybersécurité</span><span>15%</span></div><div class="progress"><div class="progress-bar" data-width="15%"></div></div></div>
+
+<div class="skill"><div class="skill-name"><span>Virtualisation</span><span>70%</span></div><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
+
+</div>
+</section>
+
+<section>
+<h2>Compétences Comportementales</h2>
+<div class="card">
+<ul>
+<li>Rigueur & Organisation</li>
+<li>Esprit d’analyse</li>
+<li>Adaptabilité</li>
+<li>Gestion du stress</li>
+<li>Confidentialité</li>
+<li>Esprit critique</li>
+</ul>
+</div>
+</section>
+
+<section>
+<h2>Expérience</h2>
+<div class="card">
+<p><strong>Assistant bureautique – 2024</strong></p>
+<p>École de la Gendarmerie Nationale</p>
+<ul>
+<li>Rédaction de documents</li>
+<li>Gestion de dossiers</li>
+<li>Utilisation d’outils bureautiques</li>
+</ul>
+</div>
+</section>
+
+<section>
+<h2>Formation</h2>
+<div class="card">
+<ul>
+<li>Baccalauréat technique (Maintenance informatique)</li>
+<li>2ème année Analyse & Programmation (en cours)</li>
+<li>Cisco Networking Academy – Réseaux</li>
+<li>Cisco Networking Academy – Cybersécurité</li>
+</ul>
 </div>
 </section>
 
 <section>
 <h2>Langues</h2>
 <div class="card">
-    <ul class="tech-list">
-        [span_9](start_span)<li><strong>Français :</strong> Maternel[span_9](end_span)</li>
-        [span_10](start_span)<li><strong>Anglais :</strong> Niveau intermédiaire[span_10](end_span)</li>
-    </ul>
+<ul>
+<li>Français : Natif</li>
+<li>Anglais : Intermédiaire</li>
+</ul>
 </div>
 </section>
 
 <section>
 <h2>Centres d’intérêt</h2>
 <div class="card">
-    <ul class="tech-list">
-        [span_11](start_span)<li>🔍 Veille technologique[span_11](end_span)</li>
-        [span_12](start_span)<li>🛡️ Cybersécurité[span_12](end_span)</li>
-        [span_13](start_span)<li>🎮 Jeux de stratégie[span_13](end_span)</li>
-        [span_14](start_span)<li>🎵 Musique[span_14](end_span)</li>
-        [span_15](start_span)<li>⚽ Sport[span_15](end_span)</li>
-    </ul>
+<ul>
+<li>Cybersécurité</li>
+<li>Veille technologique</li>
+<li>Jeux de stratégie</li>
+<li>Sport & musique</li>
+</ul>
 </div>
 </section>
 
 <section>
 <h2>Contact</h2>
 <div class="card">
-[span_16](start_span)<p>Email : emmanueltsingambia6@gmail.com[span_16](end_span)</p>
-[span_17](start_span)<p>Téléphone : +242 06 145 96 43[span_17](end_span)</p>
-[span_18](start_span)<p>Localisation : Brazzaville, ngmakosso[span_18](end_span)</p>
+<p>Email : emmanueltsingambia6@gmail.com</p>
+<p>Téléphone : +242 06 145 96 43</p>
 </div>
 </section>
 
@@ -243,11 +291,9 @@ ul.tech-list li {
 
 <script>
 window.addEventListener("load", () => {
-    const bars = document.querySelectorAll(".progress-bar");
-    bars.forEach(bar => {
-        let width = bar.getAttribute("data-width");
+    document.querySelectorAll(".progress-bar").forEach(bar => {
         setTimeout(() => {
-            bar.style.width = width;
+            bar.style.width = bar.getAttribute("data-width");
         }, 300);
     });
 });
