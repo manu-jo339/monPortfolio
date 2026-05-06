@@ -3,379 +3,916 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - TSINGAMBIA MWENOBANGUE</title>
+<title>Portfolio – TSINGAMBIA MWENOBANGUE</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+/* ========================================
+   VARIABLES & RESET
+======================================== */
+:root{
+  --cyan:   #00d4ff;
+  --mint:   #00ffcc;
+  --blue:   #007cf0;
+  --dark:   #090f1a;
+  --card-bg:rgba(15,32,50,0.82);
+  --border: rgba(0,212,255,0.25);
+  --text:   #e8f4f8;
+  --muted:  rgba(232,244,248,0.55);
 }
 
-html{
-    scroll-behavior:smooth;
+*, *::before, *::after{
+  margin:0; padding:0;
+  box-sizing:border-box;
 }
 
-
-html, body{
-    height:100%;
-}
+html{ scroll-behavior:smooth; }
 
 body{
-    min-height:100vh;
-    margin:0;
-    color:white;
-    position:relative;
-
-    /* DEUX IMAGES */
-    background-image:
-        url("https://images.unsplash.com/photo-1537432376769-00a86f06e1d4?auto=format&fit=crop&w=1920&q=80"),
-        url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80");
-
-    background-size: cover, cover;
-    background-position: center, center;
-    background-repeat: no-repeat, no-repeat;
-}
-    <div class="background-fade">
-    <div class="bg bg1"></div>
-    <div class="bg bg2"></div>
-</div>
-
-<div class="overlay"></div>
-body::before{
-    content:"";
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(10,20,30,0.85);
-    z-index:-1;
-}
-/* HEADER */html, body{
-    height:100%;
-    margin:0;
-    padding:0;
-    overflow-x:hidden;
+  font-family:'Space Grotesk',sans-serif;
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  background:var(--dark);
 }
 
-/* CONTENEUR BACKGROUND */
-.background-fade{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:-2;
+/* ========================================
+   BACKGROUND ANIMÉ
+======================================== */
+.bg-wrap{
+  position:fixed;
+  inset:0;
+  z-index:-2;
 }
 
-/* IMAGES */
 .bg{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background-size:cover;
-    background-position:center;
-    opacity:0;
-    animation:fade 12s infinite;
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  animation:bgFade 14s infinite;
 }
 
-/* IMAGE 1 */
 .bg1{
-    background-image:url("https://images.unsplash.com/photo-1537432376769-00a86f06e1d4?auto=format&fit=crop&w=1920&q=80");
-    animation-delay:0s;
+  background-image:url("https://images.unsplash.com/photo-1537432376769-00a86f06e1d4?auto=format&fit=crop&w=1920&q=80");
+  animation-delay:0s;
 }
-
-/* IMAGE 2 */
 .bg2{
-    background-image:url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80");
-    animation-delay:6s;
+  background-image:url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80");
+  animation-delay:7s;
 }
 
-/* ANIMATION FADE */
-@keyframes fade{
-    0%{opacity:0;}
-    10%{opacity:1;}
-    45%{opacity:1;}
-    55%{opacity:0;}
-    100%{opacity:0;}
+@keyframes bgFade{
+  0%  {opacity:0;}
+  10% {opacity:1;}
+  45% {opacity:1;}
+  55% {opacity:0;}
+  100%{opacity:0;}
 }
 
-/* OVERLAY SOMBRE */
 .overlay{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(10,20,30,0.85);
-    z-index:-1;
+  position:fixed;
+  inset:0;
+  background:rgba(9,15,26,0.88);
+  z-index:-1;
 }
-    
+
+/* ========================================
+   NAV
+======================================== */
+nav{
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  z-index:100;
+  padding:14px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(9,15,26,0.75);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-logo{
+  font-family:'Syne',sans-serif;
+  font-weight:800;
+  font-size:16px;
+  letter-spacing:2px;
+  background:linear-gradient(90deg,var(--cyan),var(--mint));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.nav-links{
+  display:flex;
+  gap:28px;
+  list-style:none;
+}
+
+.nav-links a{
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:1px;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color .3s;
+}
+
+.nav-links a:hover{ color:var(--cyan); }
+
+/* hamburger mobile */
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  background:none;
+  border:none;
+}
+.nav-toggle span{
+  display:block;
+  width:24px;
+  height:2px;
+  background:var(--cyan);
+  border-radius:2px;
+  transition:.3s;
+}
+
+/* ========================================
+   HEADER / HERO
+======================================== */
 header{
-    text-align:center;
-    padding:60px 20px;
+  padding:140px 20px 70px;
+  text-align:center;
 }
 
 .profile-pic{
-    width:140px;
-    height:140px;
-    border-radius:50%;
-    object-fit:cover;
-    border:4px solid #00d4ff;
-    box-shadow:0 0 20px rgba(0,212,255,0.6);
-    margin-bottom:15px;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid var(--cyan);
+  box-shadow:0 0 0 6px rgba(0,212,255,0.12), 0 0 40px rgba(0,212,255,0.4);
+  margin-bottom:24px;
+  animation:popIn .8s cubic-bezier(.175,.885,.32,1.275) both;
 }
 
-h1{font-size:38px;}
-p{opacity:0.9;}
+@keyframes popIn{
+  from{transform:scale(.6);opacity:0;}
+  to  {transform:scale(1); opacity:1;}
+}
 
-/* SECTIONS */
+h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(28px,5vw,48px);
+  font-weight:800;
+  letter-spacing:2px;
+  animation:fadeUp .8s .2s both;
+}
+
+.subtitle-name{
+  font-size:15px;
+  font-weight:500;
+  color:var(--cyan);
+  letter-spacing:3px;
+  margin:8px 0 12px;
+  animation:fadeUp .8s .3s both;
+}
+
+.role{
+  color:var(--muted);
+  font-size:14px;
+  animation:fadeUp .8s .4s both;
+}
+
+.tags{
+  margin-top:16px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  animation:fadeUp .8s .5s both;
+}
+
+.tag{
+  padding:5px 14px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:600;
+  border:1px solid var(--border);
+  color:var(--cyan);
+  background:rgba(0,212,255,0.06);
+  letter-spacing:1px;
+}
+
+@keyframes fadeUp{
+  from{transform:translateY(20px);opacity:0;}
+  to  {transform:translateY(0);   opacity:1;}
+}
+
+/* ========================================
+   SECTIONS
+======================================== */
 section{
-    max-width:1000px;
-    margin:30px auto;
-    padding:20px;
+  max-width:1000px;
+  margin:0 auto 50px;
+  padding:0 20px;
 }
 
-/* TITRES */
-h2{
-    margin-bottom:15px;
-    padding-left:12px;
-    position:relative;
+.section-title{
+  font-family:'Syne',sans-serif;
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:24px;
+  padding-left:16px;
+  position:relative;
+  letter-spacing:1px;
 }
 
-h2::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    height:100%;
-    width:5px;
-    background:linear-gradient(#00d4ff,#00ffcc);
-    border-radius:5px;
-    box-shadow:0 0 10px #00d4ff;
+.section-title::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:4px;
+  bottom:4px;
+  width:4px;
+  background:linear-gradient(var(--cyan),var(--mint));
+  border-radius:4px;
+  box-shadow:0 0 10px var(--cyan);
 }
 
-/* CARTES */
+/* ========================================
+   CARD GÉNÉRIQUE
+======================================== */
 .card{
-    position:relative;
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:20px;
-    backdrop-filter:blur(12px);
-    overflow:hidden;
-    transition:0.4s;
+  position:relative;
+  padding:24px 28px;
+  border-radius:16px;
+  margin-bottom:20px;
+  backdrop-filter:blur(14px);
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  transition:transform .35s, box-shadow .35s;
+  overflow:hidden;
 }
 
 .card::before{
-    content:"";
-    position:absolute;
-    inset:-2px;
-    border-radius:15px;
-    background:linear-gradient(120deg,#00d4ff,#00ffcc,#007cf0,#00d4ff);
-    background-size:300%;
-    z-index:-1;
-    animation:borderGlow 6s linear infinite;
-}
-
-.card::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(15,32,39,0.85);
-    border-radius:15px;
-    z-index:-1;
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:16px;
+  background:linear-gradient(120deg,var(--cyan),var(--mint),var(--blue),var(--cyan));
+  background-size:300%;
+  z-index:-1;
+  animation:borderGlow 8s linear infinite;
 }
 
 @keyframes borderGlow{
-    0%{background-position:0%;}
-    100%{background-position:300%;}
+  0%  {background-position:0%;}
+  100%{background-position:300%;}
 }
 
 .card:hover{
-    transform:translateY(-8px) scale(1.02);
-    box-shadow:0 0 25px rgba(0,212,255,0.4);
+  transform:translateY(-6px);
+  box-shadow:0 12px 40px rgba(0,212,255,0.2);
 }
 
-/* BARRES */
-.skill{
-    margin-bottom:15px;
-}
+/* ========================================
+   COMPÉTENCES – BARRES
+======================================== */
+.skill{ margin-bottom:18px; }
 
 .skill-name{
-    display:flex;
-    justify-content:space-between;
-    font-size:14px;
-    margin-bottom:5px;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  font-weight:500;
+  margin-bottom:6px;
 }
 
 .progress{
-    width:100%;
-    height:8px;
-    background:rgba(255,255,255,0.1);
-    border-radius:10px;
-    overflow:hidden;
+  width:100%;
+  height:6px;
+  background:rgba(255,255,255,0.08);
+  border-radius:6px;
+  overflow:hidden;
 }
 
 .progress-bar{
-    height:100%;
-    width:0;
-    border-radius:10px;
-    background:linear-gradient(90deg,#00d4ff,#00ffcc);
-    box-shadow:0 0 10px #00d4ff;
-    transition:width 1.5s ease;
+  height:100%;
+  width:0;
+  border-radius:6px;
+  background:linear-gradient(90deg,var(--cyan),var(--mint));
+  box-shadow:0 0 8px var(--cyan);
+  transition:width 1.4s cubic-bezier(.4,0,.2,1);
 }
 
-/* LISTES */
-ul{list-style:none;}
-li{margin-bottom:6px;}
-
-/* LIENS */
-a{
-    color:#00d4ff;
-    text-decoration:none;
+/* ========================================
+   SOFT SKILLS – LISTE CHIPS
+======================================== */
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  list-style:none;
 }
 
-a:hover{
-    text-decoration:underline;
+.chips li{
+  padding:6px 16px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:500;
+  border:1px solid var(--border);
+  background:rgba(0,212,255,0.06);
+  color:var(--text);
+  letter-spacing:.5px;
 }
 
-/* FOOTER */
+/* ========================================
+   TIMELINE (expérience / formation)
+======================================== */
+.timeline{
+  list-style:none;
+  border-left:2px solid var(--border);
+  padding-left:24px;
+  margin-left:8px;
+}
+
+.timeline li{
+  position:relative;
+  margin-bottom:20px;
+}
+
+.timeline li::before{
+  content:"";
+  position:absolute;
+  left:-31px;
+  top:6px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--cyan);
+  box-shadow:0 0 8px var(--cyan);
+}
+
+.timeline li strong{
+  display:block;
+  font-size:14px;
+  font-weight:600;
+  color:var(--cyan);
+  margin-bottom:2px;
+}
+
+.timeline li span{
+  font-size:12px;
+  color:var(--muted);
+  display:block;
+  margin-bottom:4px;
+}
+
+.timeline li p, .timeline li ul{
+  font-size:13px;
+  color:var(--text);
+}
+
+.timeline li ul{
+  list-style:none;
+  margin-top:4px;
+}
+.timeline li ul li::before{
+  content:"›  ";
+  color:var(--mint);
+}
+
+/* ========================================
+   SECTION CV
+======================================== */
+.cv-section{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.cv-section p{
+  font-size:14px;
+  color:var(--muted);
+  max-width:580px;
+  line-height:1.7;
+}
+
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 26px;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));
+  color:#fff;
+  font-family:'Syne',sans-serif;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.5px;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:transform .25s, box-shadow .25s;
+  box-shadow:0 4px 20px rgba(0,212,255,0.35);
+  white-space:nowrap;
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 30px rgba(0,212,255,0.5);
+}
+
+.btn-primary svg{ flex-shrink:0; }
+
+/* ========================================
+   PROJETS
+======================================== */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:22px;
+}
+
+.project-card{
+  position:relative;
+  padding:26px 24px;
+  border-radius:16px;
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  backdrop-filter:blur(14px);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  transition:transform .35s, box-shadow .35s;
+  overflow:hidden;
+}
+
+.project-card::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:16px;
+  background:linear-gradient(120deg,var(--cyan),var(--mint),var(--blue),var(--cyan));
+  background-size:300%;
+  z-index:-1;
+  animation:borderGlow 8s linear infinite;
+}
+
+.project-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 16px 48px rgba(0,212,255,0.22);
+}
+
+/* Badge de statut */
+.project-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:1px;
+  padding:3px 10px;
+  border-radius:20px;
+  width:fit-content;
+}
+
+.badge-done{
+  background:rgba(0,255,204,0.1);
+  color:var(--mint);
+  border:1px solid rgba(0,255,204,0.3);
+}
+.badge-wip{
+  background:rgba(0,212,255,0.1);
+  color:var(--cyan);
+  border:1px solid rgba(0,212,255,0.3);
+}
+
+.badge-dot{
+  width:6px; height:6px;
+  border-radius:50%;
+  background:currentColor;
+}
+
+.project-title{
+  font-family:'Syne',sans-serif;
+  font-size:17px;
+  font-weight:700;
+}
+
+.project-desc{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.65;
+  flex:1;
+}
+
+.project-tech{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.tech-tag{
+  font-size:11px;
+  padding:3px 10px;
+  border-radius:20px;
+  background:rgba(0,212,255,0.08);
+  border:1px solid rgba(0,212,255,0.2);
+  color:var(--cyan);
+  font-weight:500;
+}
+
+.btn-outline{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:9px 18px;
+  border-radius:8px;
+  border:1px solid var(--cyan);
+  color:var(--cyan);
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  cursor:pointer;
+  background:transparent;
+  transition:background .25s, box-shadow .25s, transform .25s;
+  letter-spacing:.3px;
+  width:fit-content;
+  font-family:'Space Grotesk',sans-serif;
+}
+
+.btn-outline:hover{
+  background:rgba(0,212,255,0.12);
+  box-shadow:0 0 16px rgba(0,212,255,0.2);
+  transform:translateY(-2px);
+}
+
+/* Placeholder si pas encore de lien */
+.btn-disabled{
+  opacity:.45;
+  cursor:default;
+  border-color:var(--muted);
+  color:var(--muted);
+}
+.btn-disabled:hover{
+  background:transparent;
+  box-shadow:none;
+  transform:none;
+}
+
+/* ========================================
+   CONTACT
+======================================== */
+.contact-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.contact-list li{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+}
+
+.contact-icon{
+  width:36px; height:36px;
+  border-radius:8px;
+  background:rgba(0,212,255,0.08);
+  border:1px solid var(--border);
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+}
+
+.contact-list a{
+  color:var(--cyan);
+  text-decoration:none;
+}
+.contact-list a:hover{ text-decoration:underline; }
+
+/* ========================================
+   FOOTER
+======================================== */
 footer{
-    text-align:center;
-    padding:20px;
-    opacity:0.7;
+  text-align:center;
+  padding:30px 20px;
+  font-size:13px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+}
+
+/* ========================================
+   SCROLL REVEAL
+======================================== */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media(max-width:680px){
+  nav{ padding:12px 18px; }
+  .nav-links{ display:none; flex-direction:column; position:absolute; top:100%; left:0; width:100%; background:rgba(9,15,26,.96); padding:20px; gap:18px; }
+  .nav-links.open{ display:flex; }
+  .nav-toggle{ display:flex; }
+
+  .cv-section{ flex-direction:column; }
+  .projects-grid{ grid-template-columns:1fr; }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<img src="121.jpeg" class="profile-pic">
-<h1>TSINGAMBIA MWENOBANGUE</h1>
-<h2>Josué Arnauld Emmanuel</h2>
-<p>Étudiant en Informatique | Systèmes & Réseaux | Cybersécurité</p>
+<!-- ======== BACKGROUND ======== -->
+<div class="bg-wrap">
+  <div class="bg bg1"></div>
+  <div class="bg bg2"></div>
+</div>
+<div class="overlay"></div>
 
-<p style="margin-top:10px; font-size:14px; opacity:0.8;">
-💻 Systemes • 🔐 Sécurité • 🌐 Réseaux
-</p>
+<!-- ======== NAV ======== -->
+<nav>
+  <span class="nav-logo">TSINGAMBIA</span>
+
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#experience">Expérience</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ======== HERO ======== -->
+<header>
+  <img src="121.jpeg" alt="Photo de profil" class="profile-pic">
+  <h1>TSINGAMBIA MWENOBANGUE</h1>
+  <p class="subtitle-name">JOSUÉ ARNAULD EMMANUEL</p>
+  <p class="role">Étudiant en Informatique · Systèmes & Réseaux · Cybersécurité</p>
+  <div class="tags">
+    <span class="tag">💻 Systèmes</span>
+    <span class="tag">🔐 Cybersécurité</span>
+    <span class="tag">🌐 Réseaux</span>
+  </div>
 </header>
 
-<section>
-<h2>À propos</h2>
-<div class="card">
-<p>
-Étudiant en informatique passionné par les systèmes, les réseaux et la cybersécurité. 
-Je développe mes compétences à travers la pratique, la veille technologique et la résolution de problèmes.
-</p>
-</div>
+<!-- ======== À PROPOS ======== -->
+<section id="about">
+  <h2 class="section-title reveal">À propos</h2>
+  <div class="card reveal">
+    <p style="font-size:14px;line-height:1.8;color:var(--muted)">
+      Étudiant en informatique passionné par les systèmes, les réseaux et la cybersécurité. 
+      Je développe mes compétences à travers la pratique, la veille technologique et la résolution 
+      de problèmes concrets. Curieux, rigoureux et orienté résultats, je construis chaque jour 
+      une expertise solide pour devenir un professionnel polyvalent dans le domaine IT.
+    </p>
+  </div>
 </section>
 
-<section>
-<h2>Compétences Techniques</h2>
-<div class="card">
+<!-- ======== COMPÉTENCES TECHNIQUES ======== -->
+<section id="skills">
+  <h2 class="section-title reveal">Compétences Techniques</h2>
+  <div class="card reveal">
+    <div class="skill"><div class="skill-name"><span>Administration Systèmes</span><span>75%</span></div><div class="progress"><div class="progress-bar" data-width="75%"></div></div></div>
+    <div class="skill"><div class="skill-name"><span>Maintenance Informatique</span><span>70%</span></div><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
+    <div class="skill"><div class="skill-name"><span>Réseaux</span><span>70%</span></div><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
+    <div class="skill"><div class="skill-name"><span>Virtualisation</span><span>70%</span></div><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
+    <div class="skill"><div class="skill-name"><span>Développement Web</span><span>20%</span></div><div class="progress"><div class="progress-bar" data-width="20%"></div></div></div>
+    <div class="skill"><div class="skill-name"><span>Bases de données</span><span>20%</span></div><div class="progress"><div class="progress-bar" data-width="20%"></div></div></div>
+    <div class="skill"><div class="skill-name"><span>Cybersécurité</span><span>15%</span></div><div class="progress"><div class="progress-bar" data-width="15%"></div></div></div>
+  </div>
 
-<div class="skill"><div class="skill-name"><span>Administration Systèmes</span><span>75%</span></div><div class="progress"><div class="progress-bar" data-width="75%"></div></div></div>
-
-<div class="skill"><div class="skill-name"><span>Maintenance Informatique</span><span>70%</span></div><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
-
-<div class="skill"><div class="skill-name"><span>Réseaux</span><span>70%</span></div><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
-
-<div class="skill"><div class="skill-name"><span>Développement Web</span><span>20%</span></div><div class="progress"><div class="progress-bar" data-width="20%"></div></div></div>
-
-<div class="skill"><div class="skill-name"><span>Bases de données</span><span>20%</span></div><div class="progress"><div class="progress-bar" data-width="20%"></div></div></div>
-
-<div class="skill"><div class="skill-name"><span>Cybersécurité</span><span>15%</span></div><div class="progress"><div class="progress-bar" data-width="15%"></div></div></div>
-
-<div class="skill"><div class="skill-name"><span>Virtualisation</span><span>70%</span></div><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
-
-</div>
+  <h2 class="section-title reveal" style="margin-top:30px">Compétences Comportementales</h2>
+  <div class="card reveal">
+    <ul class="chips">
+      <li>Rigueur & Organisation</li>
+      <li>Esprit d'analyse</li>
+      <li>Adaptabilité</li>
+      <li>Gestion du stress</li>
+      <li>Confidentialité</li>
+      <li>Esprit critique</li>
+    </ul>
+  </div>
 </section>
 
-<section>
-<h2>Compétences Comportementales</h2>
-<div class="card">
-<ul>
-<li>Rigueur & Organisation</li>
-<li>Esprit d’analyse</li>
-<li>Adaptabilité</li>
-<li>Gestion du stress</li>
-<li>Confidentialité</li>
-<li>Esprit critique</li>
-</ul>
-</div>
+<!-- ======== PROJETS ======== -->
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  ZONE PROJETS — modifiable facilement                       ║
+  ║  Pour ajouter un projet, copie un bloc .project-card        ║
+  ║  et modifie : titre, description, tech-tags, lien, badge    ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<section id="projects">
+  <h2 class="section-title reveal">Mes Projets</h2>
+
+  <div class="projects-grid" id="projectsGrid">
+
+    <!-- ── PROJET 1 ── -->
+    <div class="project-card reveal">
+      <span class="project-badge badge-done"><span class="badge-dot"></span>Terminé</span>
+      <p class="project-title">Deploiement et Sécurisation d'un server apacche sous ubuntu</p>
+      <p class="project-desc">
+       Configuration et déploiement d'un serveur web Apache sécurisé sous environnement Linux.
+      </p>
+      <div class="project-tech">
+        <span class="tech-tag">SYSTEME</span>
+        <span class="tech-tag"> SERVEUR APACHE</span>
+        <span class="tech-tag">SECURITE</span>
+      </div>
+      <!-- Remplace # par ton lien PDF ou URL réel -->
+      <a href="Rapport_Apache_TSINGAMBIA.pdf" class="btn-outline">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Voir le projet
+      </a>
+    </div>
+
+
+    <!-- ── PROJET 4 (template vide à dupliquer) ── -->
+    <!--
+    <div class="project-card reveal">
+      <span class="project-badge badge-wip"><span class="badge-dot"></span>En cours</span>
+      <p class="project-title">Nom du projet</p>
+      <p class="project-desc">Courte description du projet.</p>
+      <div class="project-tech">
+        <span class="tech-tag">Tech 1</span>
+        <span class="tech-tag">Tech 2</span>
+      </div>
+      <a href="lien-vers-pdf-ou-url" class="btn-outline">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Voir le projet
+      </a>
+    </div>
+    -->
+
+  </div>
 </section>
 
-<section>
-<h2>Expérience</h2>
-<div class="card">
-<p><strong>Assistant bureautique – 2024</strong></p>
-<p>École de la Gendarmerie Nationale</p>
-<ul>
-<li>Rédaction de documents</li>
-<li>Gestion de dossiers</li>
-<li>Utilisation d’outils bureautiques</li>
-</ul>
-</div>
+<!-- ======== EXPÉRIENCE ======== -->
+<section id="experience">
+  <h2 class="section-title reveal">Expérience</h2>
+  <div class="card reveal">
+    <ul class="timeline">
+      <li>
+        <strong>Assistant bureautique</strong>
+        <span>École de la Gendarmerie Nationale · 2024</span>
+        <ul>
+          <li>Rédaction de documents officiels</li>
+          <li>Gestion et archivage de dossiers</li>
+          <li>Utilisation avancée des outils bureautiques</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2 class="section-title reveal" style="margin-top:30px">Formation</h2>
+  <div class="card reveal">
+    <ul class="timeline">
+      <li>
+        <strong>2ème année – Analyse & Programmation</strong>
+        <span>En cours</span>
+      </li>
+      <li>
+        <strong>Cisco Networking Academy – Cybersécurité</strong>
+        <span>Certification</span>
+      </li>
+      <li>
+        <strong>Cisco Networking Academy – Réseaux</strong>
+        <span>Certification</span>
+      </li>
+      <li>
+        <strong>Baccalauréat Technique – Maintenance Informatique</strong>
+        <span>Diplôme obtenu</span>
+      </li>
+    </ul>
+  </div>
 </section>
 
+<!-- ======== LANGUES & INTÉRÊTS ======== -->
 <section>
-<h2>Formation</h2>
-<div class="card">
-<ul>
-<li>Baccalauréat technique (Maintenance informatique)</li>
-<li>2ème année Analyse & Programmation (en cours)</li>
-<li>Cisco Networking Academy – Réseaux</li>
-<li>Cisco Networking Academy – Cybersécurité</li>
-</ul>
-</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+    <div>
+      <h2 class="section-title reveal">Langues</h2>
+      <div class="card reveal">
+        <ul class="chips">
+          <li>🇫🇷 Français — Natif</li>
+          <li>🇬🇧 Anglais — Intermédiaire</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h2 class="section-title reveal">Centres d'intérêt</h2>
+      <div class="card reveal">
+        <ul class="chips">
+          <li>🔐 Cybersécurité</li>
+          <li>📡 Veille technologique</li>
+          <li>♟️ Jeux de stratégie</li>
+          <li>🎵 Musique</li>
+          <li>⚽ Sport</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-<h2>Langues</h2>
-<div class="card">
-<ul>
-<li>Français : Natif</li>
-<li>Anglais : Intermédiaire</li>
-</ul>
-</div>
+<!-- ======== TÉLÉCHARGER CV ======== -->
+<section id="cv">
+  <h2 class="section-title reveal">Mon CV</h2>
+  <div class="card reveal">
+    <div class="cv-section">
+      <p>
+        Retrouve l'ensemble de mon parcours, mes compétences et mes expériences 
+        dans mon curriculum vitæ complet. Disponible en téléchargement PDF.
+      </p>
+      <!--
+        Remplace "CV_TSINGAMBIA.pdf" par le chemin réel de ton fichier CV.
+        Place le fichier dans le même dossier que index.html.
+      -->
+      <a href="Mon_CV.pdf" download class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Télécharger mon CV (PDF)
+      </a>
+    </div>
+  </div>
 </section>
 
-<section>
-<h2>Centres d’intérêt</h2>
-<div class="card">
-<ul>
-<li>Cybersécurité</li>
-<li>Veille technologique</li>
-<li>Jeux de stratégie</li>
-<li>Sport & musique</li>
-</ul>
-</div>
+<!-- ======== CONTACT ======== -->
+<section id="contact">
+  <h2 class="section-title reveal">Contact</h2>
+  <div class="card reveal">
+    <ul class="contact-list">
+      <li>
+        <div class="contact-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <a href="mailto:emmanueltsingambia6@gmail.com">emmanueltsingambia6@gmail.com</a>
+      </li>
+      <li>
+        <div class="contact-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.91 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.83 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-1a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <span>+242 06 145 96 43</span>
+      </li>
+    </ul>
+  </div>
 </section>
 
-<section>
-<h2>Contact</h2>
-<div class="card">
-<p>Email : emmanueltsingambia6@gmail.com</p>
-<p>Téléphone : +242 06 145 96 43</p>
-</div>
-</section>
-
+<!-- ======== FOOTER ======== -->
 <footer>
-© 2026 Emmanuel Tsingambia
+  © 2026 Emmanuel Tsingambia — Tous droits réservés
 </footer>
 
+<!-- ======== SCRIPTS ======== -->
 <script>
-window.addEventListener("load", () => {
-    document.querySelectorAll(".progress-bar").forEach(bar => {
-        setTimeout(() => {
-            bar.style.width = bar.getAttribute("data-width");
-        }, 300);
-    });
+/* ── Navigation mobile ── */
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("open");
+}
+
+/* ── Scroll Reveal ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add("visible");
+      /* Déclenche les barres de compétences au premier affichage */
+      e.target.querySelectorAll(".progress-bar").forEach(bar => {
+        bar.style.width = bar.getAttribute("data-width");
+      });
+    }
+  });
+},{threshold:0.12});
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+/* ── Ferme le menu mobile si on clique un lien ── */
+document.querySelectorAll(".nav-links a").forEach(a => {
+  a.addEventListener("click", () => {
+    document.getElementById("navLinks").classList.remove("open");
+  });
 });
 </script>
 
